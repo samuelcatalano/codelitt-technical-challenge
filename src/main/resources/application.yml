@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  error:
+    include-binding-errors: always
+    include-message: always
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/codelitt
+  # url: jdbc:postgresql://host.docker.internal:5432/codelitt
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  banner:
+    location: banner.txt
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    org.hibernate: info
+
+api:
+  countries:
+    url: "https://restcountries.com/v3.1/name/"
